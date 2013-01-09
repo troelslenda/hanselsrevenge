@@ -4,12 +4,6 @@
   MIT License
   http://opensource.org/licenses/mit-license.php
 */
-jQuery.extend( jQuery.fn, {
-    // Name of our method & one argument (the parent selector)
-    hasParent: function(p) {
-        return $(p).find(this).length > 0;
-    }
-});
 
 function BreadCrumbTrail(options){
   this.options = options;
@@ -95,7 +89,6 @@ function BreadCrumbTrail(options){
     $("a").click(function(){
       //external links clear the cookie
       if (this.href && (getOrigin(this.href) !== document.location.protocol + "//" + document.location.host
-        || $(this).hasParent(options.resetContainer) 
         || (options.resetPattern !==undefined) ? this.href.match(options.resetPattern) : false)
       ){
         log("clearing breadcrumb trail");
