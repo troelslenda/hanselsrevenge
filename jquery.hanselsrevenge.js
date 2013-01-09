@@ -12,16 +12,7 @@ jQuery.extend( jQuery.fn, {
 });
 
 function BreadCrumbTrail(options){
-  var defaultOptions = {
-      breadCrumbSelector:".breadcrumbs",
-      maxDepth: 5,
-      inheritLandingCrumbs: true,
-      cookieOptions: {},
-      debug : false,
-      titleCallback : null
-
-    };
-  this.options = jQuery.extend(defaultOptions, options);
+  this.options = options;
   this.trail = [];
   this.links = {};
 
@@ -57,6 +48,18 @@ function BreadCrumbTrail(options){
 }
 (function ($) {
   $.fn.hanselsRevenge = function (options) {
+
+    var defaultOptions = {
+      maxDepth: 5,
+      inheritLandingCrumbs: true,
+      cookieOptions: {
+        path :"/",
+      },
+      debug : false,
+      titleCallback : null
+    };
+    options = jQuery.extend(defaultOptions, options);
+
     var breadCrumb = new BreadCrumbTrail(options);
     var cookieKey = "hanselsrevenge";
     var bcContainer = this;
