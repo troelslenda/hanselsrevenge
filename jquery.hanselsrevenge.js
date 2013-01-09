@@ -53,7 +53,7 @@ function BreadCrumbTrail(options){
       debug : false,
       titleCallback : null
     };
-    options = jQuery.extend(defaultOptions, options);
+    var options = jQuery.extend(defaultOptions, options);
 
     var breadCrumb = new BreadCrumbTrail(options);
     var bcContainer = this;
@@ -96,8 +96,8 @@ function BreadCrumbTrail(options){
       }
     })
     var getTitle = function(){
-      if (typeof breadCrumb.options.titleCallback == "function") {
-        return breadCrumb.options.titleCallback();
+      if (typeof options.titleCallback == "function") {
+        return options.titleCallback();
       }
       if (document.title)
         return document.title;
