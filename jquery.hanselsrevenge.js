@@ -132,7 +132,9 @@ function BreadCrumbTrail(options){
         var depth = breadCrumb.trail.length > options.maxDepth ? options.maxDepth  : breadCrumb.trail.length;
         for (var i = depth-1; i >= 0; i--) {
               var item =  breadCrumb.trail.shift();
-              (i == 0) ? bcContainer.append("<li>" + item.text + "</li>") : bcContainer.append("<li><a href='" + item.link + "'>" + item.text + "</a></li>");
+              text = (i == 0) ? item.text : item.text.link(item.link);
+
+              bcContainer.append($('<li>').html(text));
         }
       }
     }
