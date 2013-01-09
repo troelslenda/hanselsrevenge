@@ -54,6 +54,7 @@ function BreadCrumbTrail(options){
       inheritLandingCrumbs: true,
       cookieOptions: {
         path :"/",
+        cookieKey : "hanselsrevenge"
       },
       debug : false,
       titleCallback : null
@@ -61,8 +62,8 @@ function BreadCrumbTrail(options){
     options = jQuery.extend(defaultOptions, options);
 
     var breadCrumb = new BreadCrumbTrail(options);
-    var cookieKey = "hanselsrevenge";
     var bcContainer = this;
+    var cookieKey = options.cookieOptions.cookieKey;
 
     var log = function(mesg){
       if (console && console.log && options.debug){
